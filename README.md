@@ -43,11 +43,17 @@ one, on purpose: a person is never allowed to override a real conflict.
 
 ### 4. One national code, with the paper trail kept
 
-![NMC Registry card: one national material code linked to three companies' old codes, plus a price-spread comparison](assets/screenshots/04_national_code_registry.png)
+![NMC Registry card: one national material code linked to three companies' old codes, with a check digit and a crosswalk table](assets/screenshots/04_national_code_crosswalk.png)
 
 Once a match is confirmed, the three companies' separate old codes are linked to **one new national code**
-(`NMC:1201-0000001-3`) — and the old codes are never deleted, so nothing breaks on the company side. As a bonus,
-because we now know it's the same item, we can line up what each company paid for it and show the price gap.
+(`NMC:1201-0000001-3`) — and the old codes are never deleted, so nothing breaks on the company side.
+
+### 5. A bonus you only get once records are linked: the price gap
+
+![Savings lens: the same item bought by three companies at three different prices, with the spread and a combined opportunity figure](assets/screenshots/05_savings_lens.png)
+
+Because we now know it's the same item, we can line up what each company paid for it. Here the same flange cost
+1,160 at one company and 1,235 at another — a gap nobody could see while each company only had its own code.
 
 ## The live demo
 
