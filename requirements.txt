@@ -12,6 +12,6 @@ hypothesis==6.168.3
 rapidfuzz==3.14.6          # only to prove sama/fuzzy.py equals rapidfuzz (tests/unit/test_fuzzy.py)
 
 # optional: the idea-stage proof notebook (notebooks/build_idea_proof.py)
-nbformat==5.10.4
+nbformat==5.11.1
 nbclient==0.10.4
 ipykernel==7.2.0
