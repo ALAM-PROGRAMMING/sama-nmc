@@ -1,0 +1,15 @@
+status: draft                 # Architecture §6.12
+reviewed_by: null
+embedding:
+  model: all-MiniLM-L6-v2
+  top_k: 20
+  index: faiss_flat_ip
+generic_group_threshold: 0.85
+tfidf:
+  top_k: 20
+baseline:
+  t_base: derived
+gate:
+  frozen: true
+ranker:
+  retrain_every: 25

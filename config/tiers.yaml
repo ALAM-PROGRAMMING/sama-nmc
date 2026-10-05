@@ -1,0 +1,16 @@
+status: draft                 # Architecture §6.9; domain-reviewer sign-off required
+reviewed_by: null
+tiers:
+  R: {auto_merge: mpn_only, approvals_required: 2}
+  E: {auto_merge: mpn_or_rules_and_threshold, approvals_required: 1}
+override_to_R:
+  - {id: T-01, when: "pressure_class in [CL600, CL900, CL1500, CL2500]"}
+  - {id: T-02, when: "residuals.risk not empty"}
+  - {id: T-03, when: "class_code == '9999'"}
+  - {id: T-04, when: "user_flag_critical_service == true"}
+budget_E: 0.005
+confidence_level: 0.95
+min_n: derived
+reject_threshold: 0.10
+cluster_size_alarm: 25
+auto_merge_requires_reviewed_config: false   # benchmark/demo; MUST be true in any real deployment

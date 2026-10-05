@@ -1,0 +1,7 @@
+status: draft                 # Architecture §6.6
+reviewed_by: null
+ignorable: [SUPPLY, OF, FOR, AS, PER, SPEC, SPECIFICATION, NEW, WITH, AND, TYPE, ITEM, MATERIAL, END, ENDS, SIZE, SPARE]
+reference_patterns:
+  - {id: RF-01, pattern: '\b(DRG|DWG)\s*NO\.?\s*\S+'}
+  - {id: RF-02, pattern: '\bTAG\s*NO\.?\s*\S+'}
+  - {id: RF-03, pattern: '\bITEM\s*NO\.?\s*\S+'}

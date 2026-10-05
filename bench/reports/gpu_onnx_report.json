@@ -1,0 +1,42 @@
+{
+ "sizes": {
+  "fp32_mb": 90.4,
+  "int8_mb": 22.9
+ },
+ "k": 20,
+ "max_len": 64,
+ "sets": [
+  {
+   "set": "demo",
+   "records": 1998,
+   "true_pairs": 2486,
+   "recall_current_pct": 98.27,
+   "fp32_embed_recall_pct": 99.92,
+   "fp32_union_recall_pct": 99.92,
+   "fp32_encode_s_1thread": 10.03,
+   "fp32_extra_pairs": 13805,
+   "int8_embed_recall_pct": 99.92,
+   "int8_union_recall_pct": 99.92,
+   "int8_encode_s_1thread": 4.4,
+   "int8_extra_pairs": 13743,
+   "int8_vs_fp32_mean_cosine": 0.96854,
+   "int8_vs_fp32_min_cosine": 0.92389
+  },
+  {
+   "set": "unseen",
+   "records": 4022,
+   "true_pairs": 5155,
+   "recall_current_pct": 36.41,
+   "fp32_embed_recall_pct": 71.72,
+   "fp32_union_recall_pct": 74.41,
+   "fp32_encode_s_1thread": 22.95,
+   "fp32_extra_pairs": 36493,
+   "int8_embed_recall_pct": 71.02,
+   "int8_union_recall_pct": 73.85,
+   "int8_encode_s_1thread": 10.37,
+   "int8_extra_pairs": 36285,
+   "int8_vs_fp32_mean_cosine": 0.96321,
+   "int8_vs_fp32_min_cosine": 0.92597
+  }
+ ]
+}

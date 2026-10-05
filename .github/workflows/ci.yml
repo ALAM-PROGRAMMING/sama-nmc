@@ -1,0 +1,55 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  reference-engine:
+    name: Python reference engine
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Tests (safety invariants, scenarios A-F, artifact sync)
+        run: python -m pytest -q
+        env:
+          PYTHONPATH: backend:.
+
+  web:
+    name: Browser engine and web app
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm ci
+      - run: npm audit --omit=dev --audit-level=high
+      - name: Type check
+        run: npx tsc --noEmit
+      - name: Engine parity and unit tests
+        run: npx vitest run
+      - name: Static build
+        run: npm run build
+      - name: End-to-end tests (installed Google Chrome, production security headers)
+        run: npx playwright test

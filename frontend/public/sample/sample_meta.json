@@ -1,0 +1,99 @@
+{
+ "title": "Sample: three companies, one national material master",
+ "note": "All records are synthetic demo data. DEMO_A, DEMO_B and DEMO_C are not real organisations.",
+ "cpses": [
+  {
+   "id": "DEMO_A",
+   "label": "Demo CPSE A"
+  },
+  {
+   "id": "DEMO_B",
+   "label": "Demo CPSE B"
+  },
+  {
+   "id": "DEMO_C",
+   "label": "Demo CPSE C"
+  }
+ ],
+ "showcase_records": [
+  "DEMO_A:10004101",
+  "DEMO_B:M-20417",
+  "DEMO_C:4500-310",
+  "DEMO_A:10004108",
+  "DEMO_B:M-20427"
+ ],
+ "featured": [
+  {
+   "key": "lookalike",
+   "title": "Look-alike: Class 150 vs Class 300",
+   "blurb": "Two gate valves that read almost the same. Only the pressure class differs.",
+   "left": "DEMO_B:M-20427",
+   "right": "DEMO_A:10004108",
+   "decision_id": "DEMO_A:10004108~DEMO_B:M-20427"
+  },
+  {
+   "key": "vague",
+   "title": "Too vague: carbon steel vs A216 WCB",
+   "blurb": "One record names the exact grade, the other only the family.",
+   "left": "DEMO_A:10004107",
+   "right": "DEMO_B:M-20427",
+   "decision_id": "DEMO_A:10004107~DEMO_B:M-20427"
+  },
+  {
+   "key": "verified",
+   "title": "Same flange, three wordings",
+   "blurb": "Three companies, three descriptions, one verified identity.",
+   "left": "DEMO_A:10004101",
+   "right": "DEMO_B:M-20417",
+   "decision_id": "DEMO_A:10004101~DEMO_B:M-20417"
+  },
+  {
+   "key": "missing",
+   "title": "Missing information",
+   "blurb": "One record does not say how the valve connects.",
+   "left": "DEMO_A:10004111",
+   "right": "DEMO_C:4500-321",
+   "decision_id": "DEMO_A:10004111~DEMO_C:4500-321"
+  },
+  {
+   "key": "risk",
+   "title": "A warning word: NACE",
+   "blurb": "Everything else matches, but one record flags sour-service use.",
+   "left": "DEMO_A:10004109",
+   "right": "DEMO_B:M-20429",
+   "decision_id": "DEMO_A:10004109~DEMO_B:M-20429"
+  },
+  {
+   "key": "table",
+   "title": "STD vs SCH40 at 2 inch",
+   "blurb": "Different labels, same pipe wall. The thickness table is still unverified, so an engineer confirms.",
+   "left": "DEMO_A:10004106",
+   "right": "DEMO_B:M-20422",
+   "decision_id": "DEMO_A:10004106~DEMO_B:M-20422"
+  },
+  {
+   "key": "mpn",
+   "title": "Same maker part number",
+   "blurb": "Identical manufacturer and part number is proof enough, even with sparse text.",
+   "left": "DEMO_B:M-20430",
+   "right": "DEMO_C:4500-320",
+   "decision_id": "DEMO_B:M-20430~DEMO_C:4500-320"
+  },
+  {
+   "key": "chain",
+   "title": "The chain trap: vague links must not join different grades",
+   "blurb": "A carbon-steel valve could be A216 WCB or A105, but WCB and A105 are different. Approve both links and watch what happens.",
+   "left": "DEMO_A:10004107",
+   "right": "DEMO_C:4500-319",
+   "decision_id": "DEMO_A:10004107~DEMO_C:4500-319"
+  },
+  {
+   "key": "generic",
+   "title": "Outside the templated classes",
+   "blurb": "A pump. Review only: GENERIC records are never auto-merged.",
+   "left": "DEMO_A:10004115",
+   "right": "DEMO_B:M-20435",
+   "decision_id": "DEMO_A:10004115~DEMO_B:M-20435"
+  }
+ ]
+}

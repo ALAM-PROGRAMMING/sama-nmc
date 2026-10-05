@@ -1,0 +1,4 @@
+status: draft                 # Architecture §6.8; extend from reviewer-approved lists only
+reviewed_by: null
+aliases:
+  "LARSEN & TOUBRO": ["L&T", "L & T", "LARSEN AND TOUBRO"]

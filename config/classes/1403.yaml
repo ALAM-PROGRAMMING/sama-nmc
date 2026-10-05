@@ -1,0 +1,24 @@
+class_code: '1403'
+noun: NUT
+modifier: HEX
+national_name: NUT, HEX
+unspsc: null
+tier_default: E
+status: unverified
+reviewed_by: null
+head_patterns:
+- \bHEX\s+NUTS?\b
+- \bNUT\s+HEX\b
+properties:
+- name: thread_size
+  critical: true
+  extractor: thread_size
+- name: material
+  critical: true
+  extractor: material_grade
+  hierarchy: material
+- name: property_class
+  critical: false
+  extractor: property_class
+short_text_template: NUT HEX {thread_size} {material}
+long_text_template: 'NUT, HEX: THREAD {thread_size}; MATERIAL {material}; PROPERTY CLASS {property_class}'

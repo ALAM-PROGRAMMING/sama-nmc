@@ -1,0 +1,12 @@
+class_code: '9999'
+noun: GENERIC
+modifier: null
+national_name: GENERIC (semantic, review-assisted)
+unspsc: null
+tier_default: R
+status: draft
+reviewed_by: null
+head_patterns: []
+properties: []
+short_text_template: '{raw}'
+long_text_template: '{raw}'

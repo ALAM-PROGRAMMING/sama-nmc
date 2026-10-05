@@ -1,0 +1,30 @@
+version: 3
+status: unverified            # seeded from Architecture §6.1; reviewer must check before production use
+reviewed_by: null
+global:
+  - {id: A-001, pattern: '\bVLV\b',  replace: "VALVE"}
+  - {id: A-002, pattern: '\bFLGD\b', replace: "FLANGED"}
+  - {id: A-003, pattern: '\bFLG\b',  replace: "FLANGE"}
+  - {id: A-004, pattern: '\bSMLS\b', replace: "SEAMLESS"}
+  - {id: A-005, pattern: '\bNRV\b',  replace: "CHECK VALVE"}
+  - {id: A-006, pattern: '\bWN\b',   replace: "WELD NECK"}
+  - {id: A-007, pattern: '\bCS\b',   replace: "CARBON STEEL"}
+  - {id: A-008, pattern: '\bSO\b',   replace: "SLIP ON"}
+  - {id: A-009, pattern: '\bBW\b',   replace: "BUTTWELD"}
+  - {id: A-010, pattern: '\bSW\b',   replace: "SOCKETWELD"}
+  - {id: A-011, pattern: '\bTHRD\b', replace: "THREADED"}
+  # Seeded from the public reference table (data/reference/abbreviations/material_abbreviations.csv).
+  # Only unambiguous forms for the four templated families are adopted. Status stays 'unverified'.
+  - {id: A-101, pattern: '\bGATE VL\b', replace: "GATE VALVE"}
+  - {id: A-102, pattern: '\bBALL VL\b', replace: "BALL VALVE"}
+  - {id: A-103, pattern: '\bGLOBE VL\b', replace: "GLOBE VALVE"}
+  - {id: A-104, pattern: '\bGLB\b', replace: "GLOBE"}
+  - {id: A-105, pattern: '\bCHK\b', replace: "CHECK"}
+  - {id: A-106, pattern: '\bBLV\b', replace: "BALL VALVE"}
+  - {id: A-107, pattern: '\bFLGS\b', replace: "FLANGE"}
+  - {id: A-108, pattern: '\bSEML\b', replace: "SEAMLESS"}
+  - {id: A-109, pattern: '\bTHD\b', replace: "THREADED"}
+  - {id: A-110, pattern: '\bNON[- ]RETURN VALVE\b', replace: "CHECK VALVE"}
+by_class:
+  default:
+    - {id: A-201, pattern: '\bSS\b', replace: "STAINLESS STEEL"}

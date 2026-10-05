@@ -1,0 +1,33 @@
+class_code: '1402'
+noun: BOLT
+modifier: HEX
+national_name: BOLT, HEX
+unspsc: null
+tier_default: E
+status: unverified
+reviewed_by: null
+head_patterns:
+- \bHEX\s+BOLTS?\b
+- \bBOLT\s+HEX\b
+properties:
+- name: thread_size
+  critical: true
+  extractor: thread_size
+- name: length_mm
+  critical: true
+  extractor: length_mm
+- name: material
+  critical: false
+  extractor: material_grade
+  hierarchy: material
+- name: property_class
+  critical: true
+  extractor: property_class
+  allowed:
+  - '4.6'
+  - '5.6'
+  - '8.8'
+  - '10.9'
+  - '12.9'
+short_text_template: BOLT HEX {thread_size} {length_mm}MM PC {property_class}
+long_text_template: 'BOLT, HEX: THREAD {thread_size}; LENGTH {length_mm} MM; MATERIAL {material}; PROPERTY CLASS {property_class}'

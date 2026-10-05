@@ -1,0 +1,53 @@
+{
+ "version": "gate_v2",
+ "frozen": true,
+ "features": [
+  "n_crit_agree",
+  "n_crit_conflict",
+  "n_crit_less",
+  "n_crit_missing",
+  "n_noncrit_agree",
+  "n_noncrit_conflict",
+  "tfidf_cos",
+  "token_set_ratio",
+  "mfr_eq",
+  "mpn_eq",
+  "uom_compat",
+  "same_cpse"
+ ],
+ "feature_scaling": {
+  "token_set_ratio": 100.0
+ },
+ "coef": [
+  0.13950298878403466,
+  -9.743697388163874,
+  -1.9328233133306951,
+  -2.6527948400815844,
+  0.6554053447722964,
+  -2.3736235936861463,
+  1.1444880778454671,
+  -0.226388762629291,
+  -5.147468120343268,
+  8.408812388500843,
+  0.35091733153123966,
+  -1.162090053960198
+ ],
+ "intercept": 1.1385336364449934,
+ "thr_E": 0.786871,
+ "reject_thr": 0.1,
+ "t_base": 0.927434,
+ "calibration": {
+  "evidence_scope": "synthetic",
+  "min_n": 598,
+  "n_eligible": 936,
+  "n_above": 936,
+  "errors": 0,
+  "upper_bound_95": 0.003195452308302631,
+  "stopped_reason": "reached lowest candidate",
+  "t_base_f1": 0.40255357957136345
+ },
+ "trained_on": {
+  "split": "train",
+  "n_pairs": 61618
+ }
+}
