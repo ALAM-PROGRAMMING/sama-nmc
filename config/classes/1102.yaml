@@ -1,0 +1,42 @@
+class_code: '1102'
+noun: VALVE
+modifier: GLOBE
+national_name: VALVE, GLOBE
+unspsc: null
+tier_default: R
+status: unverified
+reviewed_by: null
+head_patterns:
+- \bGLOBE\s+VALVE\b
+- \bVALVE\s+GLOBE\b
+properties:
+- name: size_nps
+  critical: true
+  extractor: size_nps
+- name: pressure_class
+  critical: true
+  extractor: pressure_class
+- name: body_material
+  critical: true
+  extractor: material_grade
+  hierarchy: material
+- name: end_connection
+  critical: true
+  extractor: end_connection
+  allowed:
+  - FLANGED
+  - BUTTWELD
+  - SOCKETWELD
+  - THREADED
+- name: face
+  critical: false
+  extractor: face
+  allowed:
+  - RF
+  - FF
+  - RTJ
+- name: design_std
+  critical: false
+  extractor: standard
+short_text_template: VALVE GLOBE {size_nps} {pressure_class} {body_material} {end_connection}
+long_text_template: 'VALVE, GLOBE: SIZE NPS {size_nps}; CLASS {pressure_class}; BODY {body_material}; ENDS {end_connection}; FACE {face}; STD {design_std}'

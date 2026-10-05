@@ -1,0 +1,101 @@
+# Parameter grids for the seeded synthetic benchmark (Architecture §10, step 1).
+#
+# HARD RULE: every value below must already exist in config/ (hierarchies.yaml,
+# units.yaml, schedules.yaml, classes/*.yaml). bench/generate.py validates this at
+# load time and refuses to run if a grid value is not found in config.
+#
+# Fastener grids (thread sizes M12-M24, lengths 50-300 mm) are mild draft choices,
+# not reference data; they are not checked against any standard.
+status: draft
+reviewed_by: null
+
+# Share of base catalogue items drawn per class (synthetic mix, not a claim about real data).
+class_weights:
+  "1101": 0.12
+  "1102": 0.06
+  "1103": 0.10
+  "1104": 0.06
+  "1201": 0.14
+  "1202": 0.08
+  "1203": 0.06
+  "1301": 0.10
+  "1302": 0.06
+  "1401": 0.08
+  "1402": 0.08
+  "1403": 0.06
+
+_valve: &valve
+  size_nps: ["1/2", "3/4", "1", "1-1/2", "2", "3", "4", "6", "8", "10", "12"]
+  pressure_class: [CL150, CL300, CL600]
+  body_material: [ASTM A216 WCB, ASTM A216 WCC, ASTM A105, ASTM A350 LF2, SS304, SS316, SS316L]
+  end_connection: [FLANGED, BUTTWELD, SOCKETWELD, THREADED]
+  face: [RF, FF, RTJ]            # sampled only when end_connection == FLANGED
+
+_flange_material: &flange_material [ASTM A105, ASTM A350 LF2, SS304, SS304L, SS316, SS316L]
+
+# Wall / bore designations per material family. Only NPS 2 and NPS 12 exist in
+# config/schedules.yaml, so pipe and weld-neck bore are restricted to those sizes.
+_designations: &designations
+  CARBON STEEL: [SCH40, STD, SCH80, XS]
+  STAINLESS STEEL: [40S, 80S]
+
+classes:
+  "1101": *valve
+  "1102": *valve
+  "1103": *valve
+  "1104": *valve
+  "1201":
+    size_nps: ["2", "12"]
+    pressure_class: [CL150, CL300, CL600]
+    face: [RF, FF, RTJ]
+    material: *flange_material
+    bore_wall: *designations
+  "1202":
+    size_nps: ["1/2", "3/4", "1", "1-1/2", "2", "3", "4", "6", "8", "10", "12"]
+    pressure_class: [CL150, CL300, CL600]
+    face: [RF, FF, RTJ]
+    material: *flange_material
+  "1203":
+    size_nps: ["1/2", "3/4", "1", "1-1/2", "2", "3", "4", "6", "8", "10", "12"]
+    pressure_class: [CL150, CL300, CL600]
+    face: [RF, FF, RTJ]
+    material: *flange_material
+  "1301":
+    size_nps: ["2", "12"]
+    material: [ASTM A106 GR B, ASTM A53 GR B, SS304, SS304L, SS316, SS316L]
+    wall: *designations
+    ends: [PE, BE, TE]
+  "1302":
+    size_nps: ["2", "12"]
+    material: [ASTM A53 GR B, SS304, SS316]
+    wall: *designations
+    ends: [PE, BE]
+  "1401":
+    thread_size: [M12, M16, M20, M24]
+    length_mm: [50, 75, 100, 125, 150, 175, 200, 250, 300]
+    material: [ASTM A193 B7, SS304, SS316]
+  "1402":
+    thread_size: [M12, M16, M20, M24]
+    length_mm: [50, 75, 100, 125, 150, 175, 200, 250, 300]
+    property_class: ["4.6", "5.6", "8.8", "10.9", "12.9"]
+  "1403":
+    thread_size: [M12, M16, M20, M24]
+    material: [SS304, SS316, SS316L]   # no nut grade exists in hierarchies.yaml; stainless only
+
+# Trap twins: copies that differ in exactly one critical attribute (new true_material_id).
+trap_twins:
+  rate: 0.15
+  kinds:
+    - {id: T-CLASS, classes: ["1101", "1102", "1103", "1104", "1201", "1202", "1203"],
+       property: pressure_class, swap: [CL150, CL300]}
+    - {id: T-SCH-NPS2, classes: ["1201", "1301", "1302"], property: wall, at_size: "2",
+       swap: [SCH40, SCH80]}
+    - {id: T-STD-NPS12, classes: ["1201", "1301", "1302"], property: wall, at_size: "12",
+       swap: [STD, SCH40]}
+    - {id: T-GRADE, classes: ["1101", "1102", "1103", "1104", "1201", "1202", "1203"],
+       property: material, swap: [ASTM A105, ASTM A350 LF2]}
+    - {id: T-PROPCLASS, classes: ["1402"], property: property_class, swap: ["8.8", "10.9"]}
+
+# Equivalent designations that N-DESIG may swap (identical by the size table).
+designation_swaps:
+  - {at_size: "2", swap: [STD, SCH40]}

@@ -1,0 +1,35 @@
+{
+ "model": "../../models/embedder-v1",
+ "results": [
+  {
+   "set": "demo",
+   "split": "test",
+   "records": 1998,
+   "true_pairs": 2486,
+   "k": 20,
+   "recall_current_pct": 98.27,
+   "recall_embedding_only_pct": 99.92,
+   "recall_union_pct": 99.92,
+   "extra_pairs": 13405,
+   "extra_true_pairs": 41,
+   "current_pairs": 17235,
+   "encode_seconds": 0.394,
+   "device": "cuda"
+  },
+  {
+   "set": "unseen",
+   "split": "all",
+   "records": 4022,
+   "true_pairs": 5155,
+   "k": 20,
+   "recall_current_pct": 36.41,
+   "recall_embedding_only_pct": 70.65,
+   "recall_union_pct": 73.42,
+   "extra_pairs": 35545,
+   "extra_true_pairs": 1908,
+   "current_pairs": 67157,
+   "encode_seconds": 0.44,
+   "device": "cuda"
+  }
+ ]
+}

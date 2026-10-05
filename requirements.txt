@@ -1,0 +1,17 @@
+# Python reference engine, benchmark and tests (Python 3.11+; developed on 3.13).
+numpy==2.2.6
+pandas==2.3.1
+pyyaml==6.0.2
+pydantic==2.11.9
+scikit-learn==1.7.1
+scipy==1.16.0
+
+# tests
+pytest==9.1.1
+hypothesis==6.168.3
+rapidfuzz==3.14.6          # only to prove sama/fuzzy.py equals rapidfuzz (tests/unit/test_fuzzy.py)
+
+# optional: the idea-stage proof notebook (notebooks/build_idea_proof.py)
+nbformat==5.10.4
+nbclient==0.10.4
+ipykernel==7.2.0

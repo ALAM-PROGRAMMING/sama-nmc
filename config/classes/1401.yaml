@@ -1,0 +1,27 @@
+class_code: '1401'
+noun: BOLT
+modifier: STUD
+national_name: BOLT, STUD
+unspsc: null
+tier_default: E
+status: unverified
+reviewed_by: null
+head_patterns:
+- \bSTUD\s+BOLTS?\b
+- \bBOLT\s+STUD\b
+properties:
+- name: thread_size
+  critical: true
+  extractor: thread_size
+- name: length_mm
+  critical: true
+  extractor: length_mm
+- name: material
+  critical: true
+  extractor: material_grade
+  hierarchy: material
+- name: property_class
+  critical: false
+  extractor: property_class
+short_text_template: BOLT STUD {thread_size} {length_mm}MM {material}
+long_text_template: 'BOLT, STUD: THREAD {thread_size}; LENGTH {length_mm} MM; MATERIAL {material}; PROPERTY CLASS {property_class}'

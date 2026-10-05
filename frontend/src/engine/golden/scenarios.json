@@ -1,0 +1,55 @@
+{
+  "_comment": "Evaluator golden scenarios (cases A-F). Authored by hand; verified against the Python reference (backend/tests/integration/test_golden_scenarios.py) and must also hold in the browser engine (frontend/src/engine/__tests__).",
+  "pairs": [
+    {
+      "case": "A", "title": "Same material, different wording -> correct automatic match",
+      "left":  {"cpse": "X", "matnr": "1", "maktx": "FLANGE WN 2\" CL150 RF SCH40 A105"},
+      "right": {"cpse": "Y", "matnr": "2", "maktx": "WELD NECK FLG, NPS 2, 150#, RF, S40, ASTM A105"},
+      "expect": {"zone": "AUTO_MERGE", "zone_step": 8, "rules_fired": [],
+                 "states": {"size_nps": "agree", "pressure_class": "agree", "face": "agree", "bore_wall": "agree", "material": "agree"}}
+    },
+    {
+      "case": "B", "title": "CL150 vs CL300 -> critical conflict -> R-01 -> REJECT",
+      "left":  {"cpse": "X", "matnr": "1", "maktx": "GATE VLV 50MM CL150 A216 WCB FLGD RF"},
+      "right": {"cpse": "Y", "matnr": "2", "maktx": "GATE VLV 50MM CL300 A216 WCB FLGD RF"},
+      "expect": {"zone": "REJECT", "zone_step": 2, "rules_fired": ["R-01"],
+                 "states": {"size_nps": "agree", "pressure_class": "conflict", "body_material": "agree", "end_connection": "agree"}}
+    },
+    {
+      "case": "C", "title": "CS vs A216 WCB -> less specific -> REVIEW",
+      "left":  {"cpse": "X", "matnr": "1", "maktx": "VALVE GATE 2IN 150# CS FLGD"},
+      "right": {"cpse": "Y", "matnr": "2", "maktx": "GATE VLV 50MM CL150 A216 WCB FLANGED END"},
+      "expect": {"zone": "REVIEW", "zone_step": 6, "rules_fired": ["R-02"],
+                 "states": {"size_nps": "agree", "pressure_class": "agree", "body_material": "less_specific", "end_connection": "agree"}}
+    },
+    {
+      "case": "D", "title": "Missing critical field -> REVIEW",
+      "left":  {"cpse": "X", "matnr": "1", "maktx": "BALL VALVE 3IN CL300 SS316"},
+      "right": {"cpse": "Y", "matnr": "2", "maktx": "Valve, Ball, NPS 3, Class 300, SS316, Flanged"},
+      "expect": {"zone": "REVIEW", "zone_step": 6, "rules_fired": ["R-03"],
+                 "states": {"size_nps": "agree", "pressure_class": "agree", "body_material": "agree", "end_connection": "left_missing"}}
+    },
+    {
+      "case": "E1", "title": "GENERIC record, identical text -> REVIEW only, never AUTO_MERGE",
+      "left":  {"cpse": "X", "matnr": "1", "maktx": "CENTRIFUGAL PUMP 50 M3H 30M HEAD"},
+      "right": {"cpse": "Y", "matnr": "2", "maktx": "CENTRIFUGAL PUMP 50 M3H 30M HEAD"},
+      "expect": {"zone": "REVIEW", "zone_step": 6, "rules_fired": [], "class_code": "9999"}
+    },
+    {
+      "case": "E2", "title": "GENERIC record, same manufacturer part number -> still REVIEW (never AUTO_MERGE)",
+      "left":  {"cpse": "X", "matnr": "1", "maktx": "CENTRIFUGAL PUMP 50 M3H", "mfr": "L&T", "mpn": "PMP-50-30"},
+      "right": {"cpse": "Y", "matnr": "2", "maktx": "PUMP CENTRIFUGAL 50 M3H", "mfr": "LARSEN & TOUBRO", "mpn": "PMP 50 30"},
+      "expect": {"zone": "REVIEW", "zone_step": 4, "rules_fired": ["R-07"], "class_code": "9999"}
+    }
+  ],
+  "run": {
+    "case": "F", "title": "Verified match -> NMC -> crosswalk -> certificate",
+    "records": [
+      {"cpse": "DEMO_A", "matnr": "10004101", "maktx": "FLANGE WN 2\" CL150 RF SCH40 A105"},
+      {"cpse": "DEMO_B", "matnr": "M-20417", "maktx": "WELD NECK FLG, NPS 2, 150#, RF, S40, ASTM A105"},
+      {"cpse": "DEMO_C", "matnr": "4500-310", "maktx": "Flange, Weld Neck, NPS 2, Class 150, RF, SCH 40, ASTM A105"}
+    ],
+    "expect": {"groups": 1, "nmcs": 1, "class_code": "1201", "members": ["DEMO_A:10004101", "DEMO_B:M-20417", "DEMO_C:4500-310"],
+               "statuses": ["VERIFIED", "VERIFIED", "VERIFIED"], "auto": 3, "review": 0, "reject": 0}
+  }
+}

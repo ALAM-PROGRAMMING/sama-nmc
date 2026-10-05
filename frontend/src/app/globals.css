@@ -1,0 +1,175 @@
+@import "tailwindcss";
+
+/*
+ * SAMA-NMC design tokens: defined ONCE here.
+ * Brand hexes (navy, blue-600, orange-500, teal-500, red-500) are for fills, borders, icons and large marks.
+ * Text shades (blue-700, amber-800, teal-700, red-700) are darker and pass WCAG AA on white and on their own tints.
+ *   teal-700 #0B6B5C  : 6.4:1 on white, 5.8:1 on teal-50
+ *   amber-800 #8A4B05 : 6.6:1 on white, 6.0:1 on amber-50
+ *   red-700 #A82E38   : 6.8:1 on white, 6.2:1 on red-50
+ *   blue-700 #1D5489  : 8.0:1 on white, 7.4:1 on blue-50
+ */
+@theme {
+  --color-*: initial;
+  --shadow-*: initial;
+  --radius-*: initial;
+
+  --color-white: #ffffff;
+  --color-navy: #17365d;
+  --color-navy-800: #112b4c; /* hover / pressed on navy */
+  --color-navy-line: #2d4c76; /* rules on navy */
+  --color-onnavy: #c3d1e2; /* secondary text on navy */
+
+  --color-blue-600: #2468a5; /* BLUE brand */
+  --color-blue-700: #1d5489;
+  --color-blue-50: #eaf2f9;
+  --color-blue-100: #d4e4f2;
+
+  --color-orange-500: #e88724; /* ORANGE brand */
+  --color-amber-800: #8a4b05;
+  --color-amber-50: #fdf3e6;
+  --color-amber-200: #f5d4a9;
+
+  --color-teal-500: #159a86; /* TEAL brand */
+  --color-teal-700: #0b6b5c;
+  --color-teal-50: #e6f5f2;
+  --color-teal-200: #a9dbd2;
+
+  --color-red-500: #c83f49; /* RED brand */
+  --color-red-700: #a82e38;
+  --color-red-50: #fbeced;
+  --color-red-200: #eeb7bb;
+
+  --color-canvas: #f3f6f8; /* LIGHT GREY */
+  --color-line: #dde3e8;
+  --color-line-strong: #c2cbd3;
+  --color-ink: #16222f; /* primary text */
+  --color-ink-2: #3b4a5a; /* secondary text */
+  --color-ink-3: #55657a; /* tertiary / labels */
+
+  --font-sans: "IBM Plex Sans", "Plex Sans Fallback", system-ui, sans-serif;
+  --font-cond: "IBM Plex Sans Condensed", "Plex Sans Fallback", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+
+  --radius-ctl: 4px; /* controls, panels */
+  --radius-tbl: 2px; /* tables, stamps */
+
+  --shadow-pop: 0 6px 24px rgba(23, 54, 93, 0.18);
+}
+
+/* Metric-adjusted fallback so the swap to IBM Plex does not shift layout. */
+@font-face {
+  font-family: "Plex Sans Fallback";
+  src: local("Arial"), local("Helvetica Neue"), local("Segoe UI");
+  size-adjust: 102%;
+  ascent-override: 100%;
+  descent-override: 26%;
+  line-gap-override: 0%;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  html {
+    background: var(--color-canvas);
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    margin: 0;
+    background: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.5;
+    font-variant-numeric: tabular-nums;
+    -webkit-font-smoothing: antialiased;
+  }
+  a {
+    color: var(--color-blue-700);
+    text-underline-offset: 3px;
+  }
+  a:hover {
+    color: var(--color-navy);
+  }
+  h1, h2, h3 {
+    margin: 0;
+    color: var(--color-navy);
+    font-family: var(--font-cond);
+    font-weight: 700;
+  }
+  p {
+    margin: 0;
+  }
+  button {
+    font: inherit;
+    cursor: pointer;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-blue-600);
+    outline-offset: 2px;
+  }
+  .on-navy :focus-visible {
+    outline-color: #ffffff;
+  }
+  ::selection {
+    background: var(--color-blue-100);
+  }
+}
+
+@layer utilities {
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-ink-3);
+  }
+  /* Hatching marks synthetic / demo / unverified material (never decorative). */
+  .hatch-grey {
+    background-image: repeating-linear-gradient(135deg, transparent 0 5px, rgba(23, 54, 93, 0.09) 5px 6px);
+  }
+  .hatch-amber {
+    background-image: repeating-linear-gradient(135deg, transparent 0 5px, rgba(232, 135, 36, 0.28) 5px 6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes sama-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+/* Evidence certificate: a clean greyscale single-column proof sheet. */
+@page {
+  margin: 14mm;
+}
+@media print {
+  html, body {
+    background: #ffffff !important;
+  }
+  .cert-sheet {
+    filter: grayscale(1);
+    border: 1px solid #000 !important;
+    font-size: 11px;
+  }
+  .cert-sheet a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .cert-sheet .hatch-amber,
+  .cert-sheet .hatch-grey {
+    border-color: #000;
+  }
+}

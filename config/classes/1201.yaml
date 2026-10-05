@@ -1,0 +1,38 @@
+class_code: '1201'
+noun: FLANGE
+modifier: WELD NECK
+national_name: FLANGE, WELD NECK
+unspsc: null
+tier_default: E
+status: unverified
+reviewed_by: null
+head_patterns:
+- \bWELD\s*NECK\s+FLANGE\b
+- \bFLANGE\s+WELD\s*NECK\b
+properties:
+- name: size_nps
+  critical: true
+  extractor: size_nps
+- name: pressure_class
+  critical: true
+  extractor: pressure_class
+- name: face
+  critical: true
+  extractor: face
+  allowed:
+  - RF
+  - FF
+  - RTJ
+- name: bore_wall
+  critical: true
+  extractor: schedule
+  resolver: schedules
+- name: material
+  critical: true
+  extractor: material_grade
+  hierarchy: material
+- name: standard
+  critical: false
+  extractor: standard
+short_text_template: FLG WELD NECK {size_nps} {pressure_class} {face} {bore_wall} {material}
+long_text_template: 'FLANGE, WELD NECK: SIZE NPS {size_nps}; CLASS {pressure_class}; FACE {face}; BORE {bore_wall}; MATERIAL {material}; STD {standard}'

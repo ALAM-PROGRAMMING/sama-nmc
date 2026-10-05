@@ -1,0 +1,493 @@
+{
+ "generated_by": "bench/export_assets.py",
+ "config_version": "sha256:a9cd15feefa7049e90bb3368102b0dd10516e5fe5cf8e51b38e0effcea2a0f11",
+ "gate": "gate_v2",
+ "scope_note": "Measured offline with the Python reference on a seeded synthetic benchmark.",
+ "synthetic": {
+  "n_pairs": 17235,
+  "modes": {
+   "sama": {
+    "auto_correct": 619,
+    "auto_wrong": 0,
+    "review": 2659,
+    "reject": 13957,
+    "reject_true_match": 0,
+    "auto_precision": 1.0,
+    "upper_bound_95": 0.00483,
+    "total_recall": 1.0
+   },
+   "baseline": {
+    "auto_correct": 1038,
+    "auto_wrong": 890,
+    "review": 15307,
+    "reject": 0,
+    "reject_true_match": 0,
+    "auto_precision": 0.5384,
+    "upper_bound_95": 0.48059,
+    "total_recall": 1.0
+   },
+   "model_only": {
+    "auto_correct": 1650,
+    "auto_wrong": 71,
+    "review": 1329,
+    "reject": 14185,
+    "reject_true_match": 37,
+    "auto_precision": 0.9587,
+    "upper_bound_95": 0.05003,
+    "total_recall": 0.9849
+   }
+  },
+  "by_pair_type": {
+   "desig": {
+    "sama:REVIEW": 9,
+    "baseline:REVIEW": 9,
+    "model_only:AUTO_MERGE": 9
+   },
+   "downgrade": {
+    "sama:REVIEW": 439,
+    "baseline:REVIEW": 463,
+    "model_only:REJECT": 33,
+    "model_only:REVIEW": 406,
+    "sama:AUTO_MERGE": 24,
+    "model_only:AUTO_MERGE": 24
+   },
+   "identical": {
+    "sama:REVIEW": 1376,
+    "baseline:REVIEW": 933,
+    "model_only:REVIEW": 350,
+    "sama:AUTO_MERGE": 595,
+    "model_only:AUTO_MERGE": 1617,
+    "baseline:AUTO_MERGE": 1038,
+    "model_only:REJECT": 4
+   },
+   "mpn_suffix": {
+    "sama:REVIEW": 79,
+    "baseline:REVIEW": 48,
+    "model_only:REJECT": 72,
+    "baseline:AUTO_MERGE": 31,
+    "model_only:REVIEW": 7
+   },
+   "random": {
+    "sama:REJECT": 13365,
+    "baseline:REVIEW": 13116,
+    "model_only:REJECT": 13469,
+    "sama:REVIEW": 540,
+    "baseline:AUTO_MERGE": 789,
+    "model_only:REVIEW": 422,
+    "model_only:AUTO_MERGE": 14
+   },
+   "riskword": {
+    "sama:REVIEW": 80,
+    "baseline:REVIEW": 78,
+    "model_only:REVIEW": 23,
+    "model_only:AUTO_MERGE": 57,
+    "baseline:AUTO_MERGE": 2
+   },
+   "trap": {
+    "sama:REVIEW": 136,
+    "baseline:REVIEW": 660,
+    "model_only:REJECT": 607,
+    "sama:REJECT": 592,
+    "model_only:REVIEW": 121,
+    "baseline:AUTO_MERGE": 68
+   }
+  },
+  "blocking": {
+   "true_pairs": 2486,
+   "found": 2443,
+   "recall": 0.9827
+  },
+  "safety": {
+   "auto_false_merges": 0,
+   "auto_trap": 0,
+   "auto_riskword": 0,
+   "auto_mpn_suffix": 0,
+   "auto_downgrade_without_mpn": 0,
+   "passed": true
+  },
+  "threshold": {
+   "thr_E": 0.786871,
+   "is_demo": false,
+   "min_n": 598,
+   "n_eligible": 936,
+   "n_above": 936,
+   "errors": 0,
+   "upper_bound_95": 0.003195452308302631,
+   "stopped_reason": "reached lowest candidate",
+   "t_base": 0.9274,
+   "t_base_f1": 0.4026
+  },
+  "n_records": 10137
+ },
+ "unseen_noise": {
+  "n_pairs": 66653,
+  "modes": {
+   "sama": {
+    "auto_correct": 177,
+    "auto_wrong": 0,
+    "review": 26567,
+    "reject": 39909,
+    "reject_true_match": 27,
+    "auto_precision": 1.0,
+    "upper_bound_95": 0.01678,
+    "total_recall": 0.9854
+   },
+   "baseline": {
+    "auto_correct": 326,
+    "auto_wrong": 3543,
+    "review": 62784,
+    "reject": 0,
+    "reject_true_match": 0,
+    "auto_precision": 0.0843,
+    "upper_bound_95": 0.92298,
+    "total_recall": 1.0
+   },
+   "model_only": {
+    "auto_correct": 1351,
+    "auto_wrong": 16705,
+    "review": 8466,
+    "reject": 40131,
+    "reject_true_match": 64,
+    "auto_precision": 0.0748,
+    "upper_bound_95": 0.92837,
+    "total_recall": 0.9655
+   }
+  },
+  "by_pair_type": {
+   "desig": {
+    "sama:REVIEW": 6,
+    "baseline:REVIEW": 6,
+    "model_only:AUTO_MERGE": 6
+   },
+   "downgrade": {
+    "sama:REVIEW": 223,
+    "baseline:REVIEW": 240,
+    "model_only:REJECT": 18,
+    "model_only:REVIEW": 169,
+    "sama:AUTO_MERGE": 16,
+    "model_only:AUTO_MERGE": 53,
+    "sama:REJECT": 1
+   },
+   "identical": {
+    "sama:REVIEW": 1422,
+    "baseline:REVIEW": 1283,
+    "model_only:REVIEW": 271,
+    "baseline:AUTO_MERGE": 326,
+    "sama:REJECT": 26,
+    "model_only:REJECT": 46,
+    "sama:AUTO_MERGE": 161,
+    "model_only:AUTO_MERGE": 1292
+   },
+   "mpn_suffix": {
+    "sama:REVIEW": 19,
+    "baseline:REVIEW": 23,
+    "model_only:REJECT": 29,
+    "baseline:AUTO_MERGE": 6,
+    "sama:REJECT": 10
+   },
+   "random": {
+    "sama:REJECT": 39573,
+    "baseline:REVIEW": 60748,
+    "model_only:REJECT": 39732,
+    "sama:REVIEW": 24647,
+    "model_only:REVIEW": 7921,
+    "baseline:AUTO_MERGE": 3472,
+    "model_only:AUTO_MERGE": 16567
+   },
+   "riskword": {
+    "sama:REVIEW": 56,
+    "baseline:REVIEW": 55,
+    "model_only:REVIEW": 13,
+    "model_only:AUTO_MERGE": 43,
+    "baseline:AUTO_MERGE": 2,
+    "sama:REJECT": 1,
+    "model_only:REJECT": 1
+   },
+   "trap": {
+    "sama:REVIEW": 194,
+    "baseline:REVIEW": 429,
+    "model_only:REVIEW": 92,
+    "sama:REJECT": 298,
+    "model_only:REJECT": 305,
+    "baseline:AUTO_MERGE": 63,
+    "model_only:AUTO_MERGE": 95
+   }
+  },
+  "blocking": {
+   "true_pairs": 5211,
+   "found": 1855,
+   "recall": 0.356
+  },
+  "safety": {
+   "auto_false_merges": 0,
+   "auto_trap": 0,
+   "auto_riskword": 0,
+   "auto_mpn_suffix": 0,
+   "auto_downgrade_without_mpn": 0,
+   "passed": true
+  },
+  "n_records": 4041
+ },
+ "examples": [
+  {
+   "left_raw": "WN FLANGE 50MM SCH80S CL300 SS RF",
+   "right_raw": "Flange, Weld Neck, SCH 80S, Class 300, NPS 12, Stainless Steel, RF",
+   "left_cpse": "CPSE_B",
+   "right_cpse": "CPSE_C",
+   "pair_type": "random",
+   "baseline_score": 0.986694,
+   "baseline_zone": "AUTO_MERGE",
+   "sama_zone": "REJECT",
+   "sama_step": 2,
+   "sama_reason": "critical conflict: size_nps",
+   "comparison": [
+    {
+     "property": "size_nps",
+     "critical": true,
+     "left": "2",
+     "right": "12",
+     "state": "conflict",
+     "via": null,
+     "ancestor_chain": []
+    },
+    {
+     "property": "pressure_class",
+     "critical": true,
+     "left": "CL300",
+     "right": "CL300",
+     "state": "agree",
+     "via": null,
+     "ancestor_chain": []
+    },
+    {
+     "property": "face",
+     "critical": true,
+     "left": "RF",
+     "right": "RF",
+     "state": "agree",
+     "via": null,
+     "ancestor_chain": []
+    },
+    {
+     "property": "bore_wall",
+     "critical": true,
+     "left": "80S",
+     "right": "80S",
+     "state": "agree",
+     "via": null,
+     "ancestor_chain": []
+    },
+    {
+     "property": "material",
+     "critical": true,
+     "left": "STAINLESS STEEL",
+     "right": "STAINLESS STEEL",
+     "state": "less_specific",
+     "via": "both_family",
+     "ancestor_chain": [
+      "STAINLESS STEEL"
+     ]
+    },
+    {
+     "property": "standard",
+     "critical": false,
+     "left": null,
+     "right": null,
+     "state": "both_missing",
+     "via": null,
+     "ancestor_chain": []
+    }
+   ]
+  },
+  {
+   "left_raw": "FLANGE WN DN300 150# RF SCH80 CS",
+   "right_raw": "Flange, Weld Neck, NPS 12, Class 150, FF, Carbon Steel, SCH 80",
+   "left_cpse": "CPSE_A",
+   "right_cpse": "CPSE_C",
+   "pair_type": "random",
+   "baseline_score": 0.977164,
+   "baseline_zone": "AUTO_MERGE",
+   "sama_zone": "REJECT",
+   "sama_step": 2,
+   "sama_reason": "critical conflict: face",
+   "comparison": [
+    {
+     "property": "size_nps",
+     "critical": true,
+     "left": "12",
+     "right": "12",
+     "state": "agree",
+     "via": null,
+     "ancestor_chain": []
+    },
+    {
+     "property": "pressure_class",
+     "critical": true,
+     "left": "CL150",
+     "right": "CL150",
+     "state": "agree",
+     "via": null,
+     "ancestor_chain": []
+    },
+    {
+     "property": "face",
+     "critical": true,
+     "left": "RF",
+     "right": "FF",
+     "state": "conflict",
+     "via": null,
+     "ancestor_chain": []
+    },
+    {
+     "property": "bore_wall",
+     "critical": true,
+     "left": "SCH80",
+     "right": "SCH80",
+     "state": "agree",
+     "via": null,
+     "ancestor_chain": []
+    },
+    {
+     "property": "material",
+     "critical": true,
+     "left": "CARBON STEEL",
+     "right": "CARBON STEEL",
+     "state": "less_specific",
+     "via": "both_family",
+     "ancestor_chain": [
+      "CARBON STEEL"
+     ]
+    },
+    {
+     "property": "standard",
+     "critical": false,
+     "left": null,
+     "right": null,
+     "state": "both_missing",
+     "via": null,
+     "ancestor_chain": []
+    }
+   ]
+  },
+  {
+   "left_raw": "Flange, Weld Neck, NPS 2, Class 600, SCH 40S, Stainless Steel, FF",
+   "right_raw": "Flange, Weld Neck, NPS 2, Class 300, SCH 40S, Stainless Steel, FF",
+   "left_cpse": "CPSE_C",
+   "right_cpse": "CPSE_C",
+   "pair_type": "random",
+   "baseline_score": 0.962626,
+   "baseline_zone": "AUTO_MERGE",
+   "sama_zone": "REJECT",
+   "sama_step": 2,
+   "sama_reason": "critical conflict: pressure_class",
+   "comparison": [
+    {
+     "property": "size_nps",
+     "critical": true,
+     "left": "2",
+     "right": "2",
+     "state": "agree",
+     "via": null,
+     "ancestor_chain": []
+    },
+    {
+     "property": "pressure_class",
+     "critical": true,
+     "left": "CL600",
+     "right": "CL300",
+     "state": "conflict",
+     "via": null,
+     "ancestor_chain": []
+    },
+    {
+     "property": "face",
+     "critical": true,
+     "left": "FF",
+     "right": "FF",
+     "state": "agree",
+     "via": null,
+     "ancestor_chain": []
+    },
+    {
+     "property": "bore_wall",
+     "critical": true,
+     "left": "40S",
+     "right": "40S",
+     "state": "agree",
+     "via": null,
+     "ancestor_chain": []
+    },
+    {
+     "property": "material",
+     "critical": true,
+     "left": "STAINLESS STEEL",
+     "right": "STAINLESS STEEL",
+     "state": "less_specific",
+     "via": "both_family",
+     "ancestor_chain": [
+      "STAINLESS STEEL"
+     ]
+    },
+    {
+     "property": "standard",
+     "critical": false,
+     "left": null,
+     "right": null,
+     "state": "both_missing",
+     "via": null,
+     "ancestor_chain": []
+    }
+   ]
+  },
+  {
+   "left_raw": "Bolt, Hex, M12 x 125 mm, Property Class 12.9",
+   "right_raw": "Bolt, Hex, M16 x 125 mm, Property Class 12.9",
+   "left_cpse": "CPSE_C",
+   "right_cpse": "CPSE_C",
+   "pair_type": "random",
+   "baseline_score": 0.960186,
+   "baseline_zone": "AUTO_MERGE",
+   "sama_zone": "REJECT",
+   "sama_step": 2,
+   "sama_reason": "critical conflict: thread_size",
+   "comparison": [
+    {
+     "property": "thread_size",
+     "critical": true,
+     "left": "M12",
+     "right": "M16",
+     "state": "conflict",
+     "via": null,
+     "ancestor_chain": []
+    },
+    {
+     "property": "length_mm",
+     "critical": true,
+     "left": "125",
+     "right": "125",
+     "state": "agree",
+     "via": null,
+     "ancestor_chain": []
+    },
+    {
+     "property": "material",
+     "critical": false,
+     "left": null,
+     "right": null,
+     "state": "both_missing",
+     "via": null,
+     "ancestor_chain": []
+    },
+    {
+     "property": "property_class",
+     "critical": true,
+     "left": "12.9",
+     "right": "12.9",
+     "state": "agree",
+     "via": null,
+     "ancestor_chain": []
+    }
+   ]
+  }
+ ]
+}

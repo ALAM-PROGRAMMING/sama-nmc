@@ -1,0 +1,32 @@
+class_code: '1301'
+noun: PIPE
+modifier: SEAMLESS
+national_name: PIPE, SEAMLESS
+unspsc: null
+tier_default: E
+status: unverified
+reviewed_by: null
+head_patterns:
+- \bSEAMLESS\s+PIPE\b
+- \bPIPE\s+SEAMLESS\b
+properties:
+- name: size_nps
+  critical: true
+  extractor: size_nps
+- name: wall
+  critical: true
+  extractor: schedule
+  resolver: schedules
+- name: material
+  critical: true
+  extractor: material_grade
+  hierarchy: material
+- name: ends
+  critical: false
+  extractor: pipe_ends
+  allowed:
+  - PE
+  - BE
+  - TE
+short_text_template: PIPE SEAMLESS {size_nps} {wall} {material}
+long_text_template: 'PIPE, SEAMLESS: SIZE NPS {size_nps}; WALL {wall}; MATERIAL {material}; ENDS {ends}'

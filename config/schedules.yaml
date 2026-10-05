@@ -1,0 +1,7 @@
+status: unverified            # Architecture §6.3 drafts; check against ASME B36.10M / B36.19M
+reviewed_by: null
+property: wall_mm
+entries:
+  "2":  {SCH40: 3.91, STD: 3.91, 40S: 3.91, SCH80: 5.54, XS: 5.54, 80S: 5.54}
+  "12": {SCH40: 10.31, STD: 9.53, 40S: 9.53, SCH80: 17.48, XS: 12.70, 80S: 12.70}
+  # add further sizes only from the standard; missing (NPS, designation) -> resolved value missing

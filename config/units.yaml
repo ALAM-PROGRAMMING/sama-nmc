@@ -1,0 +1,16 @@
+status: unverified            # Architecture §6.2
+reviewed_by: null
+uom_synonyms: {NOS: EA, "NO": EA, PC: EA, PCS: EA, EA: EA, EACH: EA, MTR: M, MTRS: M, M: M, KGS: KG, KG: KG, SET: SET}
+nps_dn: {"1/2": 15, "3/4": 20, "1": 25, "1-1/2": 40, "2": 50, "3": 80, "4": 100,
+         "6": 150, "8": 200, "10": 250, "12": 300}          # table only, never arithmetic
+pressure_class_aliases:
+  CL150: ["150#", "CL150", "CLASS 150", "CL 150", "150 LB", "150LB", "CLASS-150"]
+  CL300: ["300#", "CL300", "CLASS 300", "CL 300", "300 LB", "300LB", "CLASS-300"]
+  CL600: ["600#", "CL600", "CLASS 600", "CL 600", "600 LB", "600LB", "CLASS-600"]
+schedule_spelling:            # spelling only; meaning is resolved by schedules.yaml
+  SCH40: ["SCH40", "SCH 40", "S40", "SCH-40"]
+  STD:   ["STD", "STANDARD"]
+  SCH80: ["SCH80", "SCH 80", "S80", "SCH-80"]
+  XS:    ["XS", "EXTRA STRONG", "XH"]
+  40S:   ["40S", "SCH40S", "SCH 40S"]
+  80S:   ["80S", "SCH80S", "SCH 80S"]

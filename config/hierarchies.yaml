@@ -1,0 +1,6 @@
+status: unverified            # Architecture §6.5
+reviewed_by: null
+material:
+  CARBON STEEL: [ASTM A105, ASTM A216 WCB, ASTM A216 WCC, ASTM A106 GR B, ASTM A53 GR B, ASTM A350 LF2]
+  STAINLESS STEEL: [SS304, SS304L, SS316, SS316L]     # siblings; 304 vs 304L is a conflict unless reviewer says otherwise
+  ALLOY STEEL: [ASTM A193 B7, ASTM A182 F11, ASTM A182 F22]

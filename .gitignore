@@ -1,0 +1,71 @@
+# ---------------------------------------------------------------- private team documents (kept local, never pushed)
+docs/
+
+# ---------------------------------------------------------------- secrets: never commit these
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+credentials*.json
+secrets*.json
+.vercel/
+
+# ---------------------------------------------------------------- Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.hypothesis/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.venv/
+.venv-*/
+venv/
+
+# ---------------------------------------------------------------- Node / Next.js (see also frontend/.gitignore)
+node_modules/
+.next/
+.next-*/
+out/
+dist-*/
+coverage/
+*.tsbuildinfo
+test-results/
+playwright-report/
+blob-report/
+
+# ---------------------------------------------------------------- data and models (large or regenerable)
+# Synthetic benchmark data is regenerated with `python -m bench.generate` (seeded, deterministic).
+data/synthetic/*
+!data/synthetic/.gitkeep
+# Public real-text data is downloaded on demand and is not ours to redistribute.
+data/real/
+# Trained / downloaded models (bench/gpu): large, regenerable in minutes on a GPU.
+models/*
+!models/.gitkeep
+*.onnx
+*.safetensors
+*.pt
+*.bin
+
+# ---------------------------------------------------------------- caches and logs from experiments
+# Pickles can execute code when loaded: never ship them.
+*.pkl
+*.pickle
+bench/reports/*.log
+bench/reports/*.err
+*.log
+
+# ---------------------------------------------------------------- OS and editors
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+*~

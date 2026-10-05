@@ -1,0 +1,103 @@
+{
+ "synthetic": {
+  "pairs": 17235,
+  "sama": {
+   "auto_correct": 619,
+   "auto_wrong": 0,
+   "review": 2659,
+   "reject": 13957,
+   "reject_true_match": 0,
+   "auto_precision": 1.0,
+   "upper_bound_95": 0.00483,
+   "total_recall": 1.0
+  },
+  "baseline": {
+   "auto_correct": 1038,
+   "auto_wrong": 890,
+   "review": 15307,
+   "reject": 0,
+   "reject_true_match": 0,
+   "auto_precision": 0.5384,
+   "upper_bound_95": 0.48059,
+   "total_recall": 1.0
+  },
+  "model_only": {
+   "auto_correct": 1650,
+   "auto_wrong": 71,
+   "review": 1329,
+   "reject": 14185,
+   "reject_true_match": 37,
+   "auto_precision": 0.9587,
+   "upper_bound_95": 0.05003,
+   "total_recall": 0.9849
+  },
+  "blocking": {
+   "true_pairs": 2486,
+   "found": 2443,
+   "recall": 0.9827
+  },
+  "threshold": {
+   "thr_E": 0.786871,
+   "is_demo": false,
+   "min_n": 598,
+   "n_eligible": 936,
+   "n_above": 936,
+   "errors": 0,
+   "upper_bound_95": 0.003195452308302631,
+   "stopped_reason": "reached lowest candidate",
+   "t_base": 0.9274,
+   "t_base_f1": 0.4026
+  }
+ },
+ "unseen": {
+  "pairs": 66653,
+  "sama": {
+   "auto_correct": 177,
+   "auto_wrong": 0,
+   "review": 26567,
+   "reject": 39909,
+   "reject_true_match": 27,
+   "auto_precision": 1.0,
+   "upper_bound_95": 0.01678,
+   "total_recall": 0.9854
+  },
+  "baseline": {
+   "auto_correct": 326,
+   "auto_wrong": 3543,
+   "review": 62784,
+   "reject": 0,
+   "reject_true_match": 0,
+   "auto_precision": 0.0843,
+   "upper_bound_95": 0.92298,
+   "total_recall": 1.0
+  },
+  "model_only": {
+   "auto_correct": 1351,
+   "auto_wrong": 16705,
+   "review": 8466,
+   "reject": 40131,
+   "reject_true_match": 64,
+   "auto_precision": 0.0748,
+   "upper_bound_95": 0.92837,
+   "total_recall": 0.9655
+  },
+  "blocking": {
+   "true_pairs": 5211,
+   "found": 1855,
+   "recall": 0.356
+  }
+ },
+ "text_model": {
+  "version": 2,
+  "hashing": "fnv1a32-utf8",
+  "ngram_range": [
+   3,
+   5
+  ],
+  "n_docs": 4077,
+  "n_buckets": 32768,
+  "n_seen_buckets": 1049,
+  "fit_on": "synthetic train split (pass-2 normalized text)"
+ },
+ "gate": "gate_v2"
+}

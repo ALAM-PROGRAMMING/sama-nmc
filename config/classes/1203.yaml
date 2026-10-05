@@ -1,0 +1,34 @@
+class_code: '1203'
+noun: FLANGE
+modifier: BLIND
+national_name: FLANGE, BLIND
+unspsc: null
+tier_default: E
+status: unverified
+reviewed_by: null
+head_patterns:
+- \bBLIND\s+FLANGE\b
+- \bFLANGE\s+BLIND\b
+properties:
+- name: size_nps
+  critical: true
+  extractor: size_nps
+- name: pressure_class
+  critical: true
+  extractor: pressure_class
+- name: face
+  critical: true
+  extractor: face
+  allowed:
+  - RF
+  - FF
+  - RTJ
+- name: material
+  critical: true
+  extractor: material_grade
+  hierarchy: material
+- name: standard
+  critical: false
+  extractor: standard
+short_text_template: FLG BLIND {size_nps} {pressure_class} {face} {material}
+long_text_template: 'FLANGE, BLIND: SIZE NPS {size_nps}; CLASS {pressure_class}; FACE {face}; MATERIAL {material}; STD {standard}'

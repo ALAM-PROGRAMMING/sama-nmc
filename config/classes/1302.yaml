@@ -1,0 +1,32 @@
+class_code: '1302'
+noun: PIPE
+modifier: ERW
+national_name: PIPE, ERW
+unspsc: null
+tier_default: E
+status: unverified
+reviewed_by: null
+head_patterns:
+- \bERW\s+PIPE\b
+- \bPIPE\s+ERW\b
+properties:
+- name: size_nps
+  critical: true
+  extractor: size_nps
+- name: wall
+  critical: true
+  extractor: schedule
+  resolver: schedules
+- name: material
+  critical: true
+  extractor: material_grade
+  hierarchy: material
+- name: ends
+  critical: false
+  extractor: pipe_ends
+  allowed:
+  - PE
+  - BE
+  - TE
+short_text_template: PIPE ERW {size_nps} {wall} {material}
+long_text_template: 'PIPE, ERW: SIZE NPS {size_nps}; WALL {wall}; MATERIAL {material}; ENDS {ends}'
