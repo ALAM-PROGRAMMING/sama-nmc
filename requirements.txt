@@ -1,6 +1,6 @@
 # Python reference engine, benchmark and tests (Python 3.11+; developed on 3.13).
 numpy==2.2.6
-pandas==2.3.1
+pandas==3.0.6
 pyyaml==6.0.2
 pydantic==2.11.9
 scikit-learn==1.7.1
