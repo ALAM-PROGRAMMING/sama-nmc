@@ -1,5 +1,5 @@
 # Python reference engine, benchmark and tests (Python 3.11+; developed on 3.13).
-numpy==2.2.6
+numpy==2.5.3
 pandas==2.3.1
 pyyaml==6.0.2
 pydantic==2.11.9
