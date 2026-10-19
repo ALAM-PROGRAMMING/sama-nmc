@@ -8,7 +8,7 @@ scipy==1.16.0
 
 # tests
 pytest==9.1.1
-hypothesis==6.168.3
+hypothesis==6.170.1
 rapidfuzz==3.14.6          # only to prove sama/fuzzy.py equals rapidfuzz (tests/unit/test_fuzzy.py)
 
 # optional: the idea-stage proof notebook (notebooks/build_idea_proof.py)
